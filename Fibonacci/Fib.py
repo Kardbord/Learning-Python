@@ -1,6 +1,3 @@
-# TODO: get input from the user on which fib number to print
-
-
 calculatedvals = [0, 1]
 
 
@@ -19,4 +16,12 @@ def fibrecurse(fibnum):
         return calculatedvals[fibnum]
 
 
-print(fib(300))
+done = False
+
+while not done:
+    user_input = raw_input("Enter a Fibonacci number to be calculated (Enter to exit):")
+
+    if user_input == "":
+        done = True
+    else:
+        print(fib(int(user_input)))
