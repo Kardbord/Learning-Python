@@ -1,9 +1,13 @@
 calculatedvals = [0, 1]
+RECURSION_LIMIT = 200
 
 
 def fib(fibnum):
     if fibnum < 0:
         return "Invalid Fibonacci entry"
+
+    while fibnum - len(calculatedvals) >= RECURSION_LIMIT:
+        fibrecurse(len(calculatedvals) + RECURSION_LIMIT)
 
     return fibrecurse(fibnum)
 
