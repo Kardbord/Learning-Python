@@ -5,7 +5,7 @@ def isInt(n):
     return type(n) is int
 
 def isInt_gteZero(n):
-    """Returns true if @n is an int and greater than 0, false if not"""
+    """Returns true if @n is an int and greater than or equal to 0, false if not"""
     return isInt(n) and n >= 0
 
 
