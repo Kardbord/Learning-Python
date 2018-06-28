@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/python
 
 def isInt(n):
     """Returns true if @n is an int, false if not"""
@@ -35,4 +35,9 @@ def dynamicFib(n):
         fib[i] = fib[i - 1] + fib[i - 2]
     return fib[n]
 
+if __name__ == "__main__":
+    print("recursiveFib(6):")
+    print(recursiveFib(6))
+    print("dynamicFib(6):")
+    print(dynamicFib(6))
 
