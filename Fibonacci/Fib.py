@@ -1,31 +1,38 @@
-calculatedvals = [0, 1]
-RECURSION_LIMIT = 200
+#!/bin/python
+
+def isInt(n):
+    """Returns true if @n is an int, false if not"""
+    return type(n) is int
+
+def isInt_gteZero(n):
+    """Returns true if @n is an int and greater than 0, false if not"""
+    return isInt(n) and n >= 0
 
 
-def fib(fibnum):
-    if fibnum < 0:
-        return "Invalid Fibonacci entry"
-
-    while fibnum - len(calculatedvals) >= RECURSION_LIMIT:
-        fibrecurse(len(calculatedvals) + RECURSION_LIMIT)
-
-    return fibrecurse(fibnum)
-
-
-def fibrecurse(fibnum):
-    if fibnum < len(calculatedvals):
-        return calculatedvals[fibnum]
-    else:
-        calculatedvals.append(fibrecurse(fibnum - 1) + fibrecurse(fibnum - 2))
-        return calculatedvals[fibnum]
+def recursiveFib(n):
+    """Returns the nth fibonacci number"""
+    if not isInt_gteZero(n):
+        return float('nan');
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return recursiveFib(n - 1) + recursiveFib(n - 2)
 
 
-done = False
+def dynamicFib(n):
+    """Returns the nth fibonacci number"""
+    if not isInt_gteZero(n):
+        return float('nan');
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    fib = [None] * (n + 1)
+    fib[0] = 0
+    fib[1] = 1
+    for i in range(2, n + 1):
+        fib[i] = fib[i - 1] + fib[i - 2]
+    return fib[n]
 
-while not done:
-    user_input = raw_input("Enter a Fibonacci number to be calculated (Enter to exit):")
 
-    if user_input == "":
-        done = True
-    else:
-        print(fib(int(user_input)))
