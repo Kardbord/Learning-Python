@@ -71,6 +71,7 @@ int main(int argc, char** argv) {
         }
         catch (std::exception e) {
             std::cout << argv[i] << " is not a valid input" << std::endl;
+            std::cout << std::endl;
         }
     }
 
